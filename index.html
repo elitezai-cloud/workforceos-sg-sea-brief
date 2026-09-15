@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>WorkforceOS · SEA competitors</title>
+  <!-- acc-v11-audit-softened -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f7fb; --surface: #fff; --line: #d6e0ec; --ink: #102a43;
+      --muted: #4d6378; --navy: #0b3b75; --blue: #2563c5; --blue-soft: #dce9f8;
+      --green: #19724c; --amber: #744b00;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; overflow: hidden; }
+    body { color: var(--ink); background: var(--navy); font-family: Geist, "Avenir Next", ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    .stage { position: fixed; inset: 0 0 56px 0; background: var(--surface); }
+    .slide { display: none; position: absolute; inset: 0; padding: clamp(24px, 3.5vh, 48px) clamp(32px, 4.5vw, 72px) clamp(28px, 4vh, 48px); flex-direction: column; background: var(--surface); }
+    .slide.on { display: flex; }
+    .slide.cover { background: var(--navy); color: #fff; }
+    .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand img { width: 52px; height: 52px; object-fit: contain; border-radius: 12px; background: #fff; }
+    .brand strong { display: block; font-size: 17px; }
+    .brand span { display: block; font-size: 12px; color: var(--muted); }
+    .cover .brand span { color: #b9cee8; }
+    .chip { border-radius: 999px; padding: 8px 14px; background: var(--blue-soft); color: var(--navy); font: 700 12px/1 Geist, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+    .cover .chip { background: rgba(255,255,255,.12); color: #dce9f8; }
+    .kicker { margin: 0 0 10px; color: var(--blue); font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .cover .kicker { color: #9fc2ef; }
+    h1, h2, h3, p { margin: 0; }
+    h1 { max-width: 18ch; font-size: clamp(36px, 5.4vw, 72px); line-height: 1.04; letter-spacing: -.045em; }
+    h2 { max-width: 26ch; font-size: clamp(26px, 3.6vw, 46px); line-height: 1.1; letter-spacing: -.035em; }
+    .lede { max-width: 44rem; margin-top: 14px; color: var(--muted); font-size: clamp(16px, 1.7vw, 22px); line-height: 1.35; }
+    .cover .lede { color: #dce9f8; }
+    .fill { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 0; }
+    .grid { display: grid; gap: 14px; }
+    .g2 { grid-template-columns: 1fr 1fr; }
+    .g3 { grid-template-columns: 1fr 1fr 1fr; }
+    .g4 { grid-template-columns: repeat(4, 1fr); }
+    .card { padding: 16px 18px; border: 1px solid var(--line); border-radius: 16px; background: #f4f7fb; }
+    .card h3 { margin: 6px 0 8px; font-size: 20px; }
+    .card p { color: var(--muted); font-size: 15px; line-height: 1.4; }
+    .num { display: block; color: var(--navy); font-size: 12px; font-weight: 800; letter-spacing: .12em; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: left; font-size: 14px; vertical-align: top; }
+    th { color: var(--muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    td:first-child { font-weight: 700; }
+    .plot { position: relative; flex: 1; min-height: 0; margin-top: 8px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+    .plot-grid { position: absolute; inset: 32px 100px 36px 100px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+    .plot-grid::before, .plot-grid::after { content: ""; position: absolute; background: var(--navy); opacity: .2; z-index: 0; }
+    .plot-grid::before { left: 50%; top: 0; bottom: 0; width: 2px; transform: translateX(-1px); }
+    .plot-grid::after { top: 50%; left: 0; right: 0; height: 2px; transform: translateY(-1px); }
+    .quad { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-content: center; justify-content: center; gap: 10px; padding: 10px; }
+    .quad.win { background: var(--blue-soft); }
+    .whisper { position: absolute; top: 8px; left: 10px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    .quad.win .whisper { color: var(--navy); }
+    .mark-tile { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 88px; margin: 0; }
+    .mark-tile img { width: 48px; height: 48px; object-fit: contain; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 5px; }
+    .mark-tile.hero { width: 112px; }
+    .mark-tile.hero img { width: 72px; height: 72px; border: 2px solid var(--navy); }
+    .mark-tile figcaption { font-size: 12px; font-weight: 650; text-align: center; }
+    .axis { position: absolute; z-index: 2; color: var(--muted); font-size: 12px; font-weight: 700; text-align: center; max-width: 48%; line-height: 1.25; }
+    .axis b { color: var(--navy); }
+    .axis.north { top: 8px; left: 50%; transform: translateX(-50%); }
+    .axis.south { bottom: 8px; left: 50%; transform: translateX(-50%); }
+    .axis.west { left: 10px; top: 50%; writing-mode: vertical-rl; transform: translateY(-50%) rotate(180deg); max-width: none; }
+    .axis.east { right: 10px; top: 50%; writing-mode: vertical-rl; transform: translateY(-50%); max-width: none; }
+    .checks { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    .checks th, .checks td { padding: 11px 8px; border-bottom: 1px solid var(--line); font-size: 14px; text-align: center; vertical-align: middle; }
+    .checks td:first-child, .checks th:first-child { text-align: left; font-size: 15px; font-weight: 700; }
+    .checks th img { width: 30px; height: 30px; object-fit: contain; display: block; margin: 0 auto 6px; background: #fff; border-radius: 8px; }
+    .checks th:nth-child(2), .checks td:nth-child(2) { background: var(--blue-soft); }
+    .y { color: var(--green); font-weight: 800; font-size: 18px; }
+    .p { color: var(--amber); font-weight: 800; font-size: 16px; }
+    .n { color: #b7c3d0; font-weight: 700; font-size: 16px; }
+    .bar { position: fixed; left: 0; right: 0; bottom: 0; height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 24px; background: #0b3b75; color: #fff; }
+    .dots { display: flex; gap: 7px; }
+    .dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 99px; background: rgba(255,255,255,.28); cursor: pointer; }
+    .dots button.on { width: 24px; background: #fff; }
+    .controls { display: flex; gap: 8px; }
+    .controls button, .hint { border: 1px solid rgba(255,255,255,.25); border-radius: 10px; background: transparent; color: #fff; padding: 8px 14px; font: 650 14px Geist, sans-serif; cursor: pointer; }
+    .hint { cursor: default; border: 0; color: #b9cee8; }
+    .count { color: #b9cee8; font-size: 14px; font-weight: 650; min-width: 4.5rem; }
+    @media (max-width: 900px) { .g2, .g3, .g4 { grid-template-columns: 1fr 1fr; } h1, h2 { max-width: none; } }
+  </style>
+</head>
+<body>
+  <div class="stage">
+
+    <section class="slide cover on">
+      <div class="top">
+        <div class="brand"><img src="mark.png" alt=""><div><strong>ElitezAI</strong><span>WorkforceOS</span></div></div>
+        <div class="chip">From product pages · not market size</div>
+      </div>
+      <div class="fill">
+        <p class="kicker">Software map · Southeast Asia</p>
+        <h1>Who sells what, next to this product.</h1>
+        <p class="lede">WorkforceOS runs people across many sites — your branches or a customer’s — then pays them from that clock. Everyone else in SEA is a shift app, a site tool, a wall clock, or office payroll. This deck is only that map.</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <div class="brand"><img src="mark.png" alt=""><div><strong>ElitezAI</strong><span>WorkforceOS</span></div></div>
+        <div class="chip">02 / 12</div>
+      </div>
+      <div class="fill">
+        <p class="kicker">The product we compare against</p>
+        <h2>Customer → roster → clock → coverage → work-pass → pay → customer login.</h2>
+        <div class="grid g4" style="margin-top:18px">
+          <article class="card"><span class="num">Customer ≠ tenant</span><h3>Many principals</h3><p>The company you serve is not the software workspace. Their sites stay isolated.</p></article>
+          <article class="card"><span class="num">Field</span><h3>Proof + coverage</h3><p>Photo, GPS, offline. Who is missing. Who replaces them tonight.</p></article>
+          <article class="card"><span class="num">Singapore</span><h3>Pay from that clock</h3><p>CPF, SDL, EA. Work-pass can stop a bad roster.</p></article>
+          <article class="card"><span class="num">Also in scope</span><h3>F&amp;B groups</h3><p>Own outlets count. The test is still many sites and one trail.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <div class="brand"><img src="mark.png" alt=""><div><strong>ElitezAI</strong><span>WorkforceOS</span></div></div>
+        <div class="chip">03 / 12</div>
+      </div>
+      <div class="fill">
+        <p class="kicker">Four product types (from their own sites)</p>
+        <h2>If you bake them off as “HR software,” you lose.</h2>
+        <div class="grid g4" style="margin-top:18px">
+          <article class="card"><span class="num">Own outlets</span><h3>StaffAny, Deputy</h3><p>Shift roster + clock for F&amp;B and retail you operate. StaffAny PayrollAny is a CPF calculator. No customer login. Deputy payroll is US Paycor, not CPF.</p></article>
+          <article class="card"><span class="num">Guard / site</span><h3>SAOS, TrackTik, Hubble</h3><p>TrackTik: tours + a real client portal (help centre). Hubble: main-contractor gate. SAOS: SACE marketing — their public site often does not load, so do not treat it as confirmed.</p></article>
+          <article class="card"><span class="num">Wall clock</span><h3>TimeTec, Jibble, ZKTeco</h3><p>Terminal at the door. TimeTec payroll is Malaysia (EPF/SOCSO). Not a customer-site OS.</p></article>
+          <article class="card"><span class="num">Office payroll</span><h3>Talenox, Talenta, Sprout</h3><p>Keep them. They file statutory pay. They do not isolate your customer’s sites.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <div class="brand"><img src="mark.png" alt=""><div><strong>ElitezAI</strong><span>WorkforceOS</span></div></div>
+        <div class="chip">04 / 12</div>
+      </div>
+      <div class="fill" style="justify-content:flex-start">
+        <p class="kicker">Competition map</p>
+        <h2>Two questions. One corner.</h2>
+        <div class="plot">
+          <div class="axis north"><b>Local pay from the same clock</b></div>
+          <div class="axis south">Clock only — pay lives elsewhere</div>
+          <div class="axis west">One company, own sites</div>
+          <div class="axis east"><b>Many sites, including customers’</b></div>
+          <div class="plot-grid">
+            <div class="quad">
+              <span class="whisper">Office payroll</span>
+              <figure class="mark-tile"><img src="logos/talenox.png" alt="Talenox"><figcaption>Talenox</figcaption></figure>
+              <figure class="mark-tile"><img src="logos/payboy.png" alt="Payboy"><figcaption>Payboy</figcaption></figure>
+              <figure class="mark-tile"><img src="logos/quickhr.png" alt="QuickHR"><figcaption>QuickHR</figcaption></figure>
+            </div>
+            <div class="quad win">
+              <span class="whisper">This product</span>
+              <figure class="mark-tile hero"><img src="logos/workforceos.png" alt="WorkforceOS"><figcaption>WorkforceOS</figcaption></figure>
+            </div>
+            <div class="quad">
+              <span class="whisper">Shift apps</span>
+              <figure class="mark-tile"><img src="logos/staffany.png" alt="StaffAny"><figcaption>StaffAny</figcaption></figure>
+              <figure class="mark-tile"><img src="logos/justlogin.png" alt="JustLogin"><figcaption>JustLogin</figcaption></figure>
+            </div>
+            <div class="quad">
+              <span class="whisper">Site software</span>
+              <figure class="mark-tile"><img src="logos/saos.png" alt="SAOS"><figcaption>SAOS</figcaption></figure>
+              <figure class="mark-tile"><img src="logos/tracktik.png" alt="TrackTik"><figcaption>TrackTik</figcaption></figure>
+              <figure class="mark-tile"><img src="logos/hubble.png" alt="Hubble"><figcaption>Hubble</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <div class="brand"><img src="mark.png" alt=""><div><strong>ElitezAI</strong><span>WorkforceOS</span></div></div>
+        <div class="chip">05 / 12</div>
+      </div>
+      <div class="fill" style="justify-content:flex-start">
+        <p class="kicker">Published on their sites — not a guess</p>
+        <h2>What the job needs vs what they ship.</h2>
+        <table class="checks">
+          <thead>
+            <tr>
+              <th></th>
+              <th><img src="logos/workforceos.png" alt="">WorkforceOS</th>
+              <th><img src="logos/staffany.png" alt="">StaffAny</th>
+              <th><img src="logos/saos.png" alt="">SAOS</th>
+              <th><img src="logos/tracktik.png" alt="">TrackTik</th>
+              <th><img src="logos/hubble.png" alt="">Hubble</th>
+              <th><img src="logos/justlogin.png" alt="">JustLogin</th>
+              <th><img src="logos/excel.png" alt="">Sheets</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Client ≠ employer (many principals)</td><td class="y">●</td><td class="n">–</td><td class="y">●</td><td class="y">●</td><td class="n">–</td><td class="n">–</td><td class="n">–</td></tr>
+            <tr><td>Customer login, only their sites</td><td class="y">●</td><td class="n">–</td><td class="n">?</td><td class="y">●</td><td class="p">◐</td><td class="n">–</td><td class="n">–</td></tr>
+            <tr><td>Photo / GPS clock</td><td class="y">●</td><td class="y">●</td><td class="p">◐</td><td class="y">●</td><td class="y">●</td><td class="y">●</td><td class="n">–</td></tr>
+            <tr><td>Offline field clock</td><td class="y">●</td><td class="n">?</td><td class="n">?</td><td class="y">●</td><td class="y">●</td><td class="p">◐</td><td class="n">–</td></tr>
+            <tr><td>Same-night replace / roll call</td><td class="y">●</td><td class="p">◐</td><td class="n">?</td><td class="y">●</td><td class="n">?</td><td class="n">?</td><td class="n">–</td></tr>
+            <tr><td>Work-pass stops a bad posting</td><td class="y">●</td><td class="n">–</td><td class="n">?</td><td class="n">–</td><td class="y">●</td><td class="p">◐</td><td class="n">–</td></tr>
+            <tr><td>Singapore pay from that clock</td><td class="y">●</td><td class="p">◐</td><td class="n">?</td><td class="n">–</td><td class="n">–</td><td class="y">●</td><td class="n">–</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <div class="brand"><img src="mark.png" alt=""><div><strong>ElitezAI</strong><span>WorkforceOS</span></div></div>
+        <div class="chip">06 / 12</div>
+      </div>
+      <div class="fill">
+        <p class="kicker">Singapore · F&amp;B and retail</p>
+        <h2>StaffAny is the usual app for outlets you run yourself.</h2>
+        <div class="grid g2" style="margin-top:18px">
+          <article class="card"><span class="num">What their site ships</span><h3>Roster, GPS + photo clock, PayrollAny.</h3><p>PayrollAny shows a CPF <em>calculator</em> — not a proven CPF Board file. They are listed on SMEs Go Digital. That is a catalogue hit, not a grant for a given buyer.</p></article>
+          <article class="card"><span class="num">What they do not publish</span><h3>A customer login.</h3><p>Case studies are Ya Kun, Foreword, Ippudo — own brands. Deputy can map client sites as “locations,” still no customer portal. We still sell F&amp;B groups that need one trail, or that also serve clients.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <div class="brand"><img src="mark.png" alt=""><div><strong>ElitezAI</strong><span>WorkforceOS</span></div></div>
+        <div class="chip">07 / 12</div>
+      </div>
+      <div class="fill">
+        <p class="kicker">Singapore · security</p>
+        <h2>SAOS owns SACE paper. TrackTik owns the tour. Pay is the hole.</h2>
+        <div class="grid g3" style="margin-top:18px">
+          <article class="card"><span class="num">SAOS</span><h3>Do not lean on it yet.</h3><p>Indexed copy talks SACE, client portal, facial clock. Direct fetch of saos.asia is empty. Until the site or an app listing loads, it is not a confirmed product.</p></article>
+          <article class="card"><span class="num">Exiga = Guard Workforce</span><h3>Same Singapore vendor.</h3><p>GPS tour + “free payroll” marketing (CPF/SDL/FWL on their payroll page). Product depth vs that copy is unproven from the site.</p></article>
+          <article class="card"><span class="num">TrackTik</span><h3>Closest published analog.</h3><p>Help centre: the customer sees only their site. GPS + no-show fill. Payroll is ADP/Xero, not CPF. Offices: US, Canada, EU, South Africa — no Asia office, no APAC data residency on their site.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <div class="brand"><img src="mark.png" alt=""><div><strong>ElitezAI</strong><span>WorkforceOS</span></div></div>
+        <div class="chip">08 / 12</div>
+      </div>
+      <div class="fill">
+        <p class="kicker">Singapore · construction and office pay</p>
+        <h2>Hubble is the builder’s site. Talenox is finance. Neither is this job.</h2>
+        <div class="grid g2" style="margin-top:18px">
+          <article class="card"><span class="num">Hubble.build</span><h3>Main contractor OS.</h3><p>Gantry / face attendance, BCA ePSS, SGBuildex CPD, work-pass at the gate. Buyer is Woh Hup / Koh Brothers class — the project owner, not a labour agency serving many principals. Hubble.Financial pays subcontractors, not worker CPF.</p></article>
+          <article class="card"><span class="num">Talenox, JustLogin, QuickHR, Payboy</span><h3>Keep them.</h3><p>Native CPF/SDL/IRAS. Talenox has no native clock (Deputy / King of Time). None publish a portal for your customer. JustLogin has WhatsApp HR answers (Justina), not coverage ops.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <div class="brand"><img src="mark.png" alt=""><div><strong>ElitezAI</strong><span>WorkforceOS</span></div></div>
+        <div class="chip">09 / 12</div>
+      </div>
+      <div class="fill">
+        <p class="kicker">Malaysia</p>
+        <h2>TimeTec owns the terminal. Their payroll is EPF, not CPF.</h2>
+        <div class="grid g2" style="margin-top:18px">
+          <article class="card"><span class="num">TimeTec / FingerTec</span><h3>Same group. Wall clock + MY payroll.</h3><p>Factories, kitchens, hospitals, multi-branch. TimeTec Payroll: EPF, SOCSO, EIS, HRDF. GPS on the phone app. Not a published end-customer portal.</p></article>
+          <article class="card"><span class="num">Jibble</span><h3>Phone clock, offline published.</h3><p>GPS + selfie + offline sync. Payroll via Xero / PayrollPanda (MY). Clients are billing objects, not isolated customer logins. Johor only after we sit beside MY pay — do not fake it.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <div class="brand"><img src="mark.png" alt=""><div><strong>ElitezAI</strong><span>WorkforceOS</span></div></div>
+        <div class="chip">10 / 12</div>
+      </div>
+      <div class="fill">
+        <p class="kicker">Indonesia and the Philippines</p>
+        <h2>Talenta and Sprout are the payroll gravity. Do not fight them as HRIS.</h2>
+        <div class="grid g2" style="margin-top:18px">
+          <article class="card"><span class="num">Mekari Talenta</span><h3>BPJS + PPh 21, Jakarta.</h3><p>GPS, selfie, liveness, offline attendance in help. They even have an outsourcing industry page (per-client payroll cut-off). Still no published customer portal. Attendance-by-Talenta Play listing: Indonesia only. Their SG CPF pages are marketing until proven live.</p></article>
+          <article class="card"><span class="num">Sprout</span><h3>SSS, PhilHealth, Pag-IBIG, BIR.</h3><p>BPO / multi-branch timekeeping. Keeper is professional-services billing, not a manpower client site. Same rule: sit beside, or do not go.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="top">
+        <div class="brand"><img src="mark.png" alt=""><div><strong>ElitezAI</strong><span>WorkforceOS</span></div></div>
+        <div class="chip">11 / 12</div>
+      </div>
+      <div class="fill">
+        <p class="kicker">Default in each country</p>
+        <h2>Work with the default. Or wait until we have local pay.</h2>
+        <table>
+          <thead><tr><th></th><th>Singapore</th><th>Malaysia</th><th>Indonesia</th><th>Philippines</th><th>TH / VN</th></tr></thead>
+          <tbody>
+            <tr><td>Office payroll</td><td>Talenox, JustLogin, Payboy, QuickHR</td><td>TimeTec Payroll, PayrollPanda</td><td>Mekari Talenta</td><td>Sprout</td><td>Local statutory tools</td></tr>
+            <tr><td>Shifts / clock</td><td>StaffAny, Deputy</td><td>TimeTec, Jibble, FingerTec</td><td>Talenta attendance, StaffAny.id</td><td>Sprout + Excel</td><td>Deputy / Excel</td></tr>
+            <tr><td>Security / sites</td><td>Exiga / Guard Workforce, Gabkotech iREP; SAOS site unconfirmed</td><td>TimeTec patrol, local</td><td>Local guard vendors</td><td>Local</td><td>Local</td></tr>
+            <tr><td>Construction</td><td>Hubble (main contractor)</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><td>Our lane</td><td>Multi-site + customer view + CPF</td><td>Same ops, after MY pay</td><td>Beside Talenta, not against</td><td>Beside Sprout, not against</td><td>Not yet</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="slide cover">
+      <div class="top">
+        <div class="brand"><img src="mark.png" alt=""><div><strong>ElitezAI</strong><span>WorkforceOS</span></div></div>
+        <div class="chip">Position</div>
+      </div>
+      <div class="fill">
+        <p class="kicker">One line</p>
+        <h2>Singapore multi-site OS with CPF. Not a regional HRIS.</h2>
+        <p class="lede">Displace Excel and WhatsApp. Sit beside Talenox / Talenta / Sprout. In a security room, ask whether SACE, clock, and CPF are one trail. F&amp;B groups are in — StaffAny is the outlet app, not the agency OS. Malaysia, Indonesia, Philippines wait on local pay.</p>
+      </div>
+    </section>
+
+  </div>
+  <div class="bar">
+    <div class="count" id="count">1 / 12</div>
+    <div class="dots" id="dots"></div>
+    <div class="controls">
+      <span class="hint">← →</span>
+      <button type="button" id="prev">Back</button>
+      <button type="button" id="next">Next</button>
+    </div>
+  </div>
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    const dots = document.getElementById("dots");
+    const count = document.getElementById("count");
+    let i = 0;
+    slides.forEach((_, n) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-label", "Slide " + (n + 1));
+      b.addEventListener("click", () => go(n));
+      dots.appendChild(b);
+    });
+    function go(n) {
+      i = Math.max(0, Math.min(slides.length - 1, n));
+      slides.forEach((s, k) => s.classList.toggle("on", k === i));
+      [...dots.children].forEach((d, k) => d.classList.toggle("on", k === i));
+      count.textContent = (i + 1) + " / " + slides.length;
+      location.hash = String(i + 1);
+    }
+    document.getElementById("prev").onclick = () => go(i - 1);
+    document.getElementById("next").onclick = () => go(i + 1);
+    document.addEventListener("keydown", (e) => {
+      if (["ArrowRight", " ", "PageDown"].includes(e.key)) { e.preventDefault(); go(i + 1); }
+      if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); go(i - 1); }
+      if (e.key === "Home") go(0);
+      if (e.key === "End") go(slides.length - 1);
+    });
+    const fromHash = parseInt(location.hash.replace("#", ""), 10);
+    go(Number.isFinite(fromHash) && fromHash > 0 ? fromHash - 1 : 0);
+  </script>
+</body>
+</html>
